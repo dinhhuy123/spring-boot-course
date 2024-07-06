@@ -1,10 +1,13 @@
 package huy.dev.identityService.service;
 
-import huy.dev.identityService.dto.request.UserCreationRequest;
-import huy.dev.identityService.dto.response.UserResponse;
-import huy.dev.identityService.entity.User;
-import huy.dev.identityService.exception.AppException;
-import huy.dev.identityService.repository.UserRepository;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.when;
+
+import java.time.LocalDate;
+import java.util.Optional;
+
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,13 +17,11 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.TestPropertySource;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.when;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
-import java.time.LocalDate;
-import java.util.Optional;
+import huy.dev.identityService.dto.request.UserCreationRequest;
+import huy.dev.identityService.dto.response.UserResponse;
+import huy.dev.identityService.entity.User;
+import huy.dev.identityService.exception.AppException;
+import huy.dev.identityService.repository.UserRepository;
 
 @SpringBootTest
 @TestPropertySource("/test.properties")
@@ -100,7 +101,6 @@ public class UserServiceTest {
 
         Assertions.assertThat(response.getUsername()).isEqualTo("huy456");
         Assertions.assertThat(response.getId()).isEqualTo("7a17292dcdfb");
-
     }
 
     @Test
@@ -112,7 +112,5 @@ public class UserServiceTest {
         var exception = assertThrows(AppException.class, () -> userService.getMyInfo());
 
         Assertions.assertThat(exception.getErrorCode().getCode()).isEqualTo(1005);
-
     }
-
 }

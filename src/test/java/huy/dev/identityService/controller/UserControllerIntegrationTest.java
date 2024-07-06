@@ -1,10 +1,7 @@
 package huy.dev.identityService.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import huy.dev.identityService.dto.request.UserCreationRequest;
-import huy.dev.identityService.dto.response.UserResponse;
-import lombok.extern.slf4j.Slf4j;
+import java.time.LocalDate;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +17,12 @@ import org.testcontainers.containers.MySQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
-import java.time.LocalDate;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+
+import huy.dev.identityService.dto.request.UserCreationRequest;
+import huy.dev.identityService.dto.response.UserResponse;
+import lombok.extern.slf4j.Slf4j;
 
 @SpringBootTest
 @Slf4j
@@ -75,20 +77,14 @@ public class UserControllerIntegrationTest {
         String content = objectMapper.writeValueAsString(request);
 
         // WHEN, THEN
-        var response = mockMvc.perform(MockMvcRequestBuilders
-                .post("/users")
-                .contentType(MediaType.APPLICATION_JSON_VALUE)
-                .content(content))
+        var response = mockMvc.perform(MockMvcRequestBuilders.post("/users")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .content(content))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("code")
-                        .value(1000))
-                .andExpect(MockMvcResultMatchers.jsonPath("result.username")
-                        .value("huy456"))
-                .andExpect(MockMvcResultMatchers.jsonPath("result.firstName")
-                    .value("John"))
-                .andExpect(MockMvcResultMatchers.jsonPath("result.lastName")
-                        .value("Credence"));
+                .andExpect(MockMvcResultMatchers.jsonPath("code").value(1000))
+                .andExpect(MockMvcResultMatchers.jsonPath("result.username").value("huy456"))
+                .andExpect(MockMvcResultMatchers.jsonPath("result.firstName").value("John"))
+                .andExpect(MockMvcResultMatchers.jsonPath("result.lastName").value("Credence"));
         log.info("Result: {}", response.andReturn().getResponse().getContentAsString());
     }
-
 }

@@ -1,5 +1,9 @@
 package huy.dev.identityService.service;
 
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
 import huy.dev.identityService.dto.request.PermissionRequest;
 import huy.dev.identityService.dto.response.PermissionResponse;
 import huy.dev.identityService.entity.Permission;
@@ -9,9 +13,6 @@ import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor

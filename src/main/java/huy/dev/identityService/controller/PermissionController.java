@@ -1,5 +1,9 @@
 package huy.dev.identityService.controller;
 
+import java.util.List;
+
+import org.springframework.web.bind.annotation.*;
+
 import huy.dev.identityService.dto.request.ApiResponse;
 import huy.dev.identityService.dto.request.PermissionRequest;
 import huy.dev.identityService.dto.response.PermissionResponse;
@@ -8,9 +12,6 @@ import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/permissions")
@@ -21,7 +22,7 @@ public class PermissionController {
     PermissionService permissionService;
 
     @PostMapping
-    ApiResponse<PermissionResponse> create (@RequestBody PermissionRequest request) {
+    ApiResponse<PermissionResponse> create(@RequestBody PermissionRequest request) {
         return ApiResponse.<PermissionResponse>builder()
                 .result(permissionService.create(request))
                 .build();
