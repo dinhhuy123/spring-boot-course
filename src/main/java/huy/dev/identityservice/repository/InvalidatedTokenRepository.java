@@ -6,4 +6,4 @@ import org.springframework.stereotype.Repository;
 import huy.dev.identityservice.entity.InvalidatedToken;
 
 @Repository
-public interface InvalidatedRepository extends JpaRepository<InvalidatedToken, String> {}
+public interface InvalidatedTokenRepository extends JpaRepository<InvalidatedToken, String> {}
