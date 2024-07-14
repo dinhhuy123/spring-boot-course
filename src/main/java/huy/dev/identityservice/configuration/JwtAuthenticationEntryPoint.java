@@ -2,6 +2,7 @@ package huy.dev.identityservice.configuration;
 
 import java.io.IOException;
 
+import huy.dev.identityservice.dto.response.ApiResponse;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -12,7 +13,6 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import huy.dev.identityservice.dto.request.ApiResponse;
 import huy.dev.identityservice.exception.ErrorCode;
 
 public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {

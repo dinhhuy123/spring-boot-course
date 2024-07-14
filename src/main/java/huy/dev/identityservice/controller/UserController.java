@@ -2,12 +2,12 @@ package huy.dev.identityservice.controller;
 
 import java.util.List;
 
+import huy.dev.identityservice.dto.response.ApiResponse;
 import jakarta.validation.Valid;
 
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
-import huy.dev.identityservice.dto.request.ApiResponse;
 import huy.dev.identityservice.dto.request.UserCreationRequest;
 import huy.dev.identityservice.dto.request.UserUpdateRequest;
 import huy.dev.identityservice.dto.response.UserResponse;

@@ -1,4 +1,4 @@
-package huy.dev.identityservice.dto.request;
+package huy.dev.identityservice.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 

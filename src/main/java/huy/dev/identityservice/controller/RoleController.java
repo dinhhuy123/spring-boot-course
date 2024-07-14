@@ -2,9 +2,9 @@ package huy.dev.identityservice.controller;
 
 import java.util.List;
 
+import huy.dev.identityservice.dto.response.ApiResponse;
 import org.springframework.web.bind.annotation.*;
 
-import huy.dev.identityservice.dto.request.ApiResponse;
 import huy.dev.identityservice.dto.request.RoleRequest;
 import huy.dev.identityservice.dto.response.RoleResponse;
 import huy.dev.identityservice.service.RoleService;
